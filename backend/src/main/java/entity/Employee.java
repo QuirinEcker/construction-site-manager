@@ -5,15 +5,16 @@ import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
-public class Employee extends PanacheEntityBase {
-
-    @Id
-    Long id;
+@PrimaryKeyJoinColumn(name = "id")
+public class Employee extends Resource {
 
     String firstname;
+
     String lastname;
+
     int svn;
 
     @ManyToOne

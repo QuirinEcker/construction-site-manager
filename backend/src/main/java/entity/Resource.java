@@ -1,10 +1,15 @@
 package entity;
 
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 
 @Entity
-public class Resource {
+@Inheritance(strategy = InheritanceType.JOINED)
+public class Resource extends PanacheEntityBase {
 
     @Id
     Long id;
