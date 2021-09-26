@@ -21,5 +21,8 @@ see the resources needed for the construction site and evaluate the cost of a co
 
 == Class Diagramm
 
-link:plantuml/cld.puml[]
+[plantuml, cld, png]
+----
+include::plantuml/cld.puml[]
+----
 
