@@ -1,0 +1,58 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface Resource {
+    id: Long,
+    costPerHour: double
+    type: "Employee" | "Vehicle"
+}
+
+class Vehicle implements Resource {
+    id: Long
+    model: Model
+    age: int
+    notice: String
+}
+
+class Employee implements Resource{
+    id: Long
+    firstname: String
+    lastname: String
+    svn: int
+    address: Address
+}
+
+
+class Model {
+    brand: String
+    name: String
+    year: int
+}
+
+class Address {
+    street: string
+    place: string
+    zip: int
+}
+
+class ResourceAssignment {
+    id: Long
+    resource: Resource
+    constructionSite: ConstructionSite,
+    timeCostInHours: int
+}
+
+class ConstructionSite {
+    id: Long
+    resources: List<ResourceAssignment>
+    address: Address
+}
+
+ResourceAssignment "*" -- "1" Resource
+ResourceAssignment "*" -- "1" ConstructionSite
+ConstructionSite "1" -- "*" Address
+Employee "1" -- "*" Address
+Model "*" -- "1" Vehicle
+
+
+@enduml
