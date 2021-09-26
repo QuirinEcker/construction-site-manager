@@ -1,0 +1,13 @@
+
+services:
+  database:
+    image: postgres:latest
+    container_name: site-coordinator-database
+    environment:
+      POSTGRES_PASSWORD: app
+      POSTGRES_USER: app
+      POSTGRES_DB: db
+    volumes:
+      - ./db/:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
